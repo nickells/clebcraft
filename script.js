@@ -9,7 +9,7 @@ function getInfo(query, http){
   })
 }
 
-var app = angular.module('ClebCraftApp', ['ngAnimate']);
+var app = angular.module('ClebCraftApp', []);
 
 app.controller('MainCtrl', function($scope,$http,$interval){
   //initialize players array
