@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body ng-app="ClebCraftApp" ng-controller="MainCtrl" >
+  <div class="header">
+    <div class="container">
+      <div class="headerContent pull-right">
+        <span>clebcraft</span>
+        <img src="http://mcapi.ca/query/clebcraft.eastus2.cloudapp.azure.com/icon"/>
+      </div>
+    </div>
+  </div>
+  <div ng-cloak class="container">
+    <div class="row">
+      <div class="col-md-3">
+          <span>Players:</span>
+          <span>{{playersInfo.online}} / {{playersInfo.max}}</span>
+          <div>Ping: {{serverData.ping}}</div>
+          <div>Version: {{serverData.version}}</div>
+          <!-- <div class="mapButton">show map</div> -->
+      </div>
+      <div class="col-md-9 playerContainer">
+        <div ng-repeat="player in players" class="row listItem ">
+          <div class="col-xs-6 col-md-8 playerName">{{player.name}}</div>
+          <div class="col-xs-6 col-md-4 playerThumb">
+            <img ng-src="{{player.avatar}}" class="pull-right"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
