@@ -9,14 +9,6 @@ function getInfo(query, http){
   })
 }
 
-// function findDifference(arr1,arr2){
-//   arr1.forEach(function(elem,idx){
-//     if (arr2.indexOf)
-//   })
-// }
-
-
-
 var app = angular.module('ClebCraftApp', ['ngAnimate']);
 
 app.controller('MainCtrl', function($scope,$http,$interval){
@@ -24,7 +16,7 @@ app.controller('MainCtrl', function($scope,$http,$interval){
   $scope.players = [];
 
   pollServer();
-  // $interval(pollServer,10000)
+  $interval(pollServer,10000)
 
   function pollServer(){
     getInfo('list',$http)
