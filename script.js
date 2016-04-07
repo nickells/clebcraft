@@ -21,15 +21,16 @@ app.controller('MainCtrl', function($scope,$http,$interval){
   function pollServer(){
     getInfo('list',$http)
     .then(function(data){
+      var players = [];
       if (data.Players.list){
-        var players = data.Players.list.map(function(playerName){
+        players = data.Players.list.map(function(playerName){
           return {
             name: playerName,
             avatar: 'http://minotar.net/avatar/' + playerName + '/160'
           }
         });
-        $scope.players = players;
       }
+      $scope.players = players;
       $scope.loading = false;
     })
     .catch(console.log)
@@ -40,7 +41,7 @@ app.controller('MainCtrl', function($scope,$http,$interval){
         $scope.serverData = data;
         $scope.playersInfo = data.players;
       }
-      else throw new Error(data.error)
+      else throw new Error('error from get info',data)
     })
     .catch(console.log)  
   }
