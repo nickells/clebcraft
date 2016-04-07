@@ -13,7 +13,7 @@ var app = angular.module('ClebCraftApp', []);
 
 app.controller('MainCtrl', function($scope,$http,$interval){
   //initialize players array
-  $scope.players = [];
+  $scope.loading = true;
 
   pollServer();
   $interval(pollServer,10000)
@@ -21,21 +21,26 @@ app.controller('MainCtrl', function($scope,$http,$interval){
   function pollServer(){
     getInfo('list',$http)
     .then(function(data){
-      var players = data.Players.list.map(function(playerName){
-        return {
-          name: playerName,
-          avatar: 'http://minotar.net/avatar/' + playerName + '/180'
-        }
-      });
-
-      $scope.players = players;
+      if (data.Players.list){
+        var players = data.Players.list.map(function(playerName){
+          return {
+            name: playerName,
+            avatar: 'http://minotar.net/avatar/' + playerName + '/160'
+          }
+        });
+        $scope.players = players;
+      }
+      $scope.loading = false;
     })
     .catch(console.log)
 
     getInfo('info',$http)
     .then(function(data){
-      $scope.serverData = data;
-      $scope.playersInfo = data.players;
+      if (data.status){
+        $scope.serverData = data;
+        $scope.playersInfo = data.players;
+      }
+      else throw new Error(data.error)
     })
     .catch(console.log)  
   }

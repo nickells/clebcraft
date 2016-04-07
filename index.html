@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>
+  <title>mooo
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,22 +12,24 @@
 <body ng-app="ClebCraftApp" ng-controller="MainCtrl" >
   <div class="header">
     <div class="container">
-      <div class="headerContent pull-right">
-        <span>clebcraft</span>
-        <img src="http://mcapi.ca/query/clebcraft.eastus2.cloudapp.azure.com/icon"/>
+        <span class="logotype">clebcraft</span>
+      <div class="pull-right">
+        <button class="mapButton">view map</button>
+
+        <!-- <img src="http://mcapi.ca/query/clebcraft.eastus2.cloudapp.azure.com/icon"/> -->
       </div>
     </div>
   </div>
   <div ng-cloak class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 infoContainer">
           <span>Players:</span>
-          <span>{{playersInfo.online}} / {{playersInfo.max}}</span>
+          <span>{{playersInfo.online}}/{{playersInfo.max}}</span>
           <div>Ping: {{serverData.ping}}</div>
           <div>Version: {{serverData.version}}</div>
-          <!-- <div class="mapButton">show map</div> -->
       </div>
       <div class="col-md-9 playerContainer">
+        <img ng-if="loading" src="loading.png" class="center-block loader"></img>
         <div ng-repeat="player in players" class="row listItem ">
           <div class="col-xs-6 col-md-8 playerName">{{player.name}}</div>
           <div class="col-xs-6 col-md-4 playerThumb">

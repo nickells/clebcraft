@@ -1,44 +1,115 @@
+@font-face {
+  font-family: 'minecraft';
+  src: url('WhiteRabbit.otf'); 
+}
+
 body {
-  background: #DDD;
+  background-image: url('minecraft_brick.jpg');
+  background-repeat: repeat;
+  background-size: 80px;
+  background-position: 0px 4px;
   color: #666;
-  font-family: 'Helvetica';
+  font-family: 'minecraft';
   font-weight: lighter;
-  font-size: 20pt; }
+  font-size: 20pt;
+
+}
 
 .header {
-  background: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,cbebff+47,a1dbff+100;Blue+3D+%2313 */
+  background: #f0f9ff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
+
+
   width: 100%;
   padding: 10px 0px;
-  margin-bottom: 10px; }
+  height: 84px;
+  margin-bottom: 10px; 
+}
 
-.headerContent span {
+.logotype {
   font-size: 24pt;
-  vertical-align: -2px;
-  margin-right: 10px; }
+  vertical-align: middle;
+  line-height: 70px
+}
 
 .listItem {
   padding: 0px 0px;
   background: white;
   color: #444;
-  margin: 10px 0px; }
+  margin: 10px 0px; 
+  -webkit-box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+  box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+}
+
+.infoContainer{
+  color: white;
+  text-shadow: 2px 2px 0px #000;
+}
 
 .playerThumb {
   padding-right: 0px; }
 
 .playerName {
   vertical-align: middle;
-  line-height: 180px; }
+  line-height: 160px; }
 
 .playerContainer {
-  padding: 0; }
+  padding: 0; 
+}
 
 .mapButton {
   display: inline-block;
   background: grey;
   color: white;
+  text-shadow: 2px 2px 0px #000;
+
   font-size: 18pt;
   padding: 10px 12px;
-  margin: 5px; }
+  margin: 5px; 
+  border: none;
+  transition: .2s;
+  -webkit-box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+  box-shadow: 0px 3px 13px -4px rgba(0,0,0,0.4);
+  outline: none;
+
+}
+
+.mapButton:hover{
+  transform: translateY(-2px); 
+  background: #888;
+  -webkit-box-shadow: 0px 6px 20px -4px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 6px 20px -4px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 20px -4px rgba(0,0,0,0.4);
+}
+
+.mapButton:active{
+  outline: none;
+  background: #777;
+
+  transform: translateY(2px); 
+  box-shadow: 0px 0px 0px;
+}
+
+
+/* The animation code */
+@keyframes loader {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.loader{
+  animation-name: loader;
+  animation-duration: 1s;
+  opacity: .8;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  margin-top: 100px;
+}
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   visibility: hidden !important; }
